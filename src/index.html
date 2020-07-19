@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+
+  <script type="module" src="/build/stencil-component.esm.js"></script>
+  <script nomodule src="/build/stencil-component.js"></script>
+  <style>
+   
+
+  
+  </style>
+</head>
+<body>
+
+ <dk-side-drawer drawer-title="Main Menu"></dk-side-drawer>
+ <button id="menu-button">Open Menu</button>
+<script>
+  const drawerMenu = document.querySelector('dk-side-drawer');
+  const openMenu = document.getElementById('menu-button');
+    openMenu.addEventListener('click', () => {
+      //console.log(drawerMenu)
+      if (!drawerMenu.opened) {
+        //this.drawerMenu
+        //console.log(drawerMenu)
+        drawerMenu.setAttribute('opened','')
+      }
+    })
+  // setTimeout(()=>{
+  //   drawerMenu.drawerTitle = "Title chnaged";
+  // },3000);
+</script>
+</body>
+</html>
