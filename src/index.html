@@ -8,29 +8,39 @@
   <script type="module" src="/build/stencil-component.esm.js"></script>
   <script nomodule src="/build/stencil-component.js"></script>
   <style>
-   
+    dk-stock-price {
+      --color-primary: rgb(5, 96, 124);
+    }
 
   
   </style>
 </head>
 <body>
 
- <dk-side-drawer drawer-title="Main Menu"></dk-side-drawer>
- <button id="menu-button">Open Menu</button>
+ <!-- <dk-side-drawer drawer-title="Main Menu"></dk-side-drawer>
+ <button id="menu-button">Open Menu</button> -->
+
+ <dk-stock-price stock-symbol="UBER"></dk-stock-price>
+ <dk-stock-finder></dk-stock-finder>
+ 
 <script>
-  const drawerMenu = document.querySelector('dk-side-drawer');
-  const openMenu = document.getElementById('menu-button');
-    openMenu.addEventListener('click', () => {
-      //console.log(drawerMenu)
-      if (!drawerMenu.opened) {
-        //this.drawerMenu
-        //console.log(drawerMenu)
-        drawerMenu.setAttribute('opened','')
-      }
-    })
+  // const drawerMenu = document.querySelector('dk-side-drawer');
+  // const openMenu = document.getElementById('menu-button');
+  //   openMenu.addEventListener('click', () => {
+  //     //console.log(drawerMenu)
+  //     if (!drawerMenu.opened) {
+  //       //this.drawerMenu
+  //       //console.log(drawerMenu)
+  //       drawerMenu.setAttribute('opened','')
+  //     }
+  //   })
   // setTimeout(()=>{
   //   drawerMenu.drawerTitle = "Title chnaged";
   // },3000);
+  const stockFinder = document.querySelector('dk-stock-finder');
+  stockFinder.addEventListener('dkSymbolSelected', event => {
+    console.log(event.detail)
+  })
 </script>
 </body>
 </html>

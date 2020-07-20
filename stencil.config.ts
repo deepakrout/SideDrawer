@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
-  namespace: 'stencil-component',
+  namespace: 'DkComponents',
   taskQueue: 'async',
   plugins: [
     sass({
@@ -11,15 +11,15 @@ export const config: Config = {
   ],
   outputTargets: [
     {
-      type: 'dist',
+      type: 'dist', 
       esmLoaderPath: '../loader'
     },
-    {
-      type: 'docs-readme'
-    },
-    {
-      type: 'www',
-      serviceWorker: null // disable service workers
-    }
+    // {
+    //   type: 'docs-readme'
+    // },
+    // {
+    //   type: 'www',
+    //   serviceWorker: null // disable service workers
+    // }
   ]
 };

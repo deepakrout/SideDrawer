@@ -11,19 +11,12 @@ export namespace Components {
         "open": () => Promise<void>;
         "opened": boolean;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface DkSpinner {
+    }
+    interface DkStockFinder {
+    }
+    interface DkStockPrice {
+        "stockSymbol": string;
     }
 }
 declare global {
@@ -33,15 +26,29 @@ declare global {
         prototype: HTMLDkSideDrawerElement;
         new (): HTMLDkSideDrawerElement;
     };
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLDkSpinnerElement extends Components.DkSpinner, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLDkSpinnerElement: {
+        prototype: HTMLDkSpinnerElement;
+        new (): HTMLDkSpinnerElement;
+    };
+    interface HTMLDkStockFinderElement extends Components.DkStockFinder, HTMLStencilElement {
+    }
+    var HTMLDkStockFinderElement: {
+        prototype: HTMLDkStockFinderElement;
+        new (): HTMLDkStockFinderElement;
+    };
+    interface HTMLDkStockPriceElement extends Components.DkStockPrice, HTMLStencilElement {
+    }
+    var HTMLDkStockPriceElement: {
+        prototype: HTMLDkStockPriceElement;
+        new (): HTMLDkStockPriceElement;
     };
     interface HTMLElementTagNameMap {
         "dk-side-drawer": HTMLDkSideDrawerElement;
-        "my-component": HTMLMyComponentElement;
+        "dk-spinner": HTMLDkSpinnerElement;
+        "dk-stock-finder": HTMLDkStockFinderElement;
+        "dk-stock-price": HTMLDkStockPriceElement;
     }
 }
 declare namespace LocalJSX {
@@ -49,23 +56,19 @@ declare namespace LocalJSX {
         "drawerTitle"?: string;
         "opened"?: boolean;
     }
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface DkSpinner {
+    }
+    interface DkStockFinder {
+        "onDkSymbolSelected"?: (event: CustomEvent<string>) => void;
+    }
+    interface DkStockPrice {
+        "stockSymbol"?: string;
     }
     interface IntrinsicElements {
         "dk-side-drawer": DkSideDrawer;
-        "my-component": MyComponent;
+        "dk-spinner": DkSpinner;
+        "dk-stock-finder": DkStockFinder;
+        "dk-stock-price": DkStockPrice;
     }
 }
 export { LocalJSX as JSX };
@@ -73,7 +76,9 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dk-side-drawer": LocalJSX.DkSideDrawer & JSXBase.HTMLAttributes<HTMLDkSideDrawerElement>;
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "dk-spinner": LocalJSX.DkSpinner & JSXBase.HTMLAttributes<HTMLDkSpinnerElement>;
+            "dk-stock-finder": LocalJSX.DkStockFinder & JSXBase.HTMLAttributes<HTMLDkStockFinderElement>;
+            "dk-stock-price": LocalJSX.DkStockPrice & JSXBase.HTMLAttributes<HTMLDkStockPriceElement>;
         }
     }
 }
